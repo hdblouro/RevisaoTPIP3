@@ -11,7 +11,7 @@ class Cliente extends Pessoa{
 
     public imprimir():void{
         super.imprimir();
-        console.log("Saldo: "+this.saldo);
+        console.log("Saldo: ", this.saldo);
     }
 }
 

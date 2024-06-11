@@ -12,11 +12,12 @@ class Pessoa {
     }
 
     imprimir(): void {
-        console.log("Nome: " + this.nome);
-        console.log("e-Mail: " + this.email);
-        console.log("Data Nasc.: " + this.nasc);
-        console.log("Idade: " + this.idade() + " anos");
-        console.log("Anos Bissextos: "+this.numBissextos());
+        console.log("Nome: ", this.nome);
+        console.log("e-Mail: ", this.email);
+        console.log("Data Nasc.: ", this.nasc.toLocaleString('pt-BR'));
+        console.log("Idade: ", this.idade() + " anos");
+        console.log("Faixa Etária: ", this.faixaEtaria());
+        console.log("Anos Bissextos: ", this.numBissextos());
     }
 
     public idade(): number {
@@ -31,7 +32,7 @@ class Pessoa {
         return idade;
     }
 
-    public numBissextos(){
+    public numBissextos(): number{
         const ano: number = this.nasc.getFullYear();
         const hoje = new Date();
         const anoatual = hoje.getFullYear();
@@ -44,6 +45,21 @@ class Pessoa {
             }
         }
         return quant;
+    }
+
+    public faixaEtaria(): string{
+        if (this.idade()<13){
+            return "Criança";
+        } else if (this.idade()<18){
+            return "Adolescente";
+        } else if (this.idade()<60){
+            return "Adulto";
+        } else if (this.idade()<100){
+            return "Idoso";
+        } else {
+            return "Matusalem";
+        }
+
     }
 }
 
